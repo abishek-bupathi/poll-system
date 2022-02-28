@@ -1,0 +1,21 @@
+{
+  "name": "poll-system",
+  "version": "1.0.0",
+  "description": "Implementation of a simple version of a web based survey system, using Node.js and Express to implement the web server, and MongoDB for data storage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "poll",
+    "system"
+  ],
+  "author": "Abishek Bupathi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3"
+  }
+}
