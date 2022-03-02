@@ -2,16 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Polling System</title>
+    <title>Poll System</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/assets/poll.js"></script>
-    <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript" type="text/javascript" src="/public/assets/poll.js"></script>
   </head>
   <body>
-    <h1>Please vote for your programming language</h1>
-    <form>
-        <input type="checkbox" name="Java"/>
-        <button type="submit">Add Item</button>
+    <h3>Please vote for you favourite programming language:</h3>
+      <form>
+        <ul style="list-style: none;">
+          <li><input type="checkbox" id="java"/>Java</li>
+          <li><input type="checkbox" id="python"/>Python</li>
+          <li><input type="checkbox" id="c++"/>C++</li>
+          <li><input type="checkbox" id="c#"/>C#</li>
+          <li><input type="checkbox" id="julia"/>Julia</li>
+        </ul>
+        <button type="submit">Submit</button>
       </form>
+      
   </body>
 </html>

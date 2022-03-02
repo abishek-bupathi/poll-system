@@ -1,5 +1,5 @@
 var express = require('express');
-var todoController = require('./controllers/pollController');
+var pollController = require('./controllers/pollController');
 
 var app = express();
 
@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 //fire controllers
-todoController(app);
+pollController(app);
 
 // listen to port
 app.listen(3000);

@@ -2,18 +2,18 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useUnifiedTopology', true);
+//mongoose.set('useNewUrlParser', true);
+//mongoose.set('useUnifiedTopology', true);
 
 mongoose.connect('mongodb+srv://abishekb128:mongoabi328@cluster0.g3nrx.mongodb.net/poll-system?retryWrites=true&w=majority');
 
 // Create a scheme - this is like a blueprint
 var pollSchema = new mongoose.Schema({
     name: String,
-    no_of_votes: Int
+    no_of_votes: Number
 });
 
-var Poll = mongoose.model('Todo', pollSchema);
+var Poll = mongoose.model('Poll', pollSchema);
 
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
@@ -23,7 +23,7 @@ module.exports = function(app){
       // get data from mongodb and pass it to the view
       Poll.find({}, function(err, data){
         if (err) throw err;
-        res.render('poll', {todos: data});
+        res.render('poll', {polls: data});
       });
     });
 }
