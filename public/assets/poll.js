@@ -1,6 +1,14 @@
-console.log('Client-side code running');
+const res = require("express/lib/response");
 
-const submit = document.getElementById('submit');
-submit.addEventListener('click', function(e) {
-  console.log('button was clicked');
-});
+$(document).ready(function () {
+
+    $('form').on('submit', function () {
+        
+        var selected_lang = document.getElementsById("language").value
+      
+        window.alert(selected_lang + 'is selected');
+      
+        
+    })
+
+})

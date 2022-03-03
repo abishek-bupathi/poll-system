@@ -26,4 +26,14 @@ module.exports = function(app){
         res.render('poll', {polls: data});
       });
     });
+
+    app.post('/poll-system', urlencodedParser, function(req,res){
+      // get data from the view and add it to mongodb
+      var polls = Poll(req.body).save(function(err,data){
+        if (err) throw err;
+        res.json(data);
+      });
+      // data.push(req.body);
+    });
+  
 }

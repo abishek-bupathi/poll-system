@@ -1,23 +1,26 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>Poll System</title>
+    <meta charset="utf-8"></meta>
+     <title>Poll System</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/public/assets/poll.js"></script>
+    <script type="text/javascript" src="\assets\poll.js"></script>
   </head>
   <body>
-    <h3>Please vote for you favourite programming language:</h3>
-      <form>
-        <ul style="list-style: none;">
-          <li><input type="checkbox" id="java"/>Java</li>
-          <li><input type="checkbox" id="python"/>Python</li>
-          <li><input type="checkbox" id="c++"/>C++</li>
-          <li><input type="checkbox" id="c#"/>C#</li>
-          <li><input type="checkbox" id="julia"/>Julia</li>
-        </ul>
-        <button name = "submit" id = "submit">Submit</button>
-      </form>
-      
+    <form>
+      <p>Please vote for you favourite programming language:</p>
+      <input type="radio" name="language" id="java" value="Java"/>
+      <label for="java">Java</label><br>
+      <input type="radio" name="language" id="python" value="Python"/>
+      <label for="python">Python</label><br>
+      <input type="radio" name="language" id="c++" value="C++"/>
+      <label for="c++">C++</label><br>
+      <input type="radio" name="language" id="c#" value="C#"/>
+      <label for="c#">C#</label><br>
+      <input type="radio" name="language" id="julia" value="Julia"/>
+      <label for="julia">Julia</label><br>
+  
+      <input type="submit" value="Submit"></input>
+    </form>
   </body>
 </html>
