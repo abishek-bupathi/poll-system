@@ -9,7 +9,7 @@
     <h3>Result of the Poll:</h3>
     <ul style="list-style: none;">
         <% for (var i=0; i < polls.length; i++) { %>
-            <li><%=polsl[i].name%> = <%=polsl[i].no_of_votes%></li>
+            <li><%=polls[i].name%> = <%=polls[i].no_of_votes%></li>
             <% } %>
     </ul>
     <button id="back">Back</button>
@@ -18,7 +18,8 @@
 
     var back_btn = document.getElementById("back")
     back_btn.addEventListener('click', function(e) {
-        history.back()
+        window.location.href="poll-system"
+        return false
     });
   </script>
 </html>

@@ -19,11 +19,19 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function(app){
 
-    app.get('/poll-system', function(req,res){
+  app.get('/poll-system', function(req,res){
+    // get data from mongodb and pass it to the view
+    Poll.find({}, function(err, data){
+      if (err) throw err;
+      res.render('poll', {polls: data});
+    });
+  });
+
+    app.get('/poll_result', function(req,res){
       // get data from mongodb and pass it to the view
       Poll.find({}, function(err, data){
         if (err) throw err;
-        res.render('poll', {polls: data});
+        res.render('poll_result', {polls: data});
       });
     });
 
@@ -33,7 +41,6 @@ module.exports = function(app){
         if (err) throw err;
         res.json(data);
       });
-      // data.push(req.body);
     });
   
 }
