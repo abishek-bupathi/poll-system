@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8"></meta>
-     <title>Poll System</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="\assets\poll.js"></script>
-  </head>
-  <body>
-  
-      <p>Please vote for you favourite programming language:</p>
-      <input type="radio" name="language" id="java" value="Java"/>
-      <label for="java">Java</label><br>
-      <input type="radio" name="language" id="python" value="Python"/>
-      <label for="python">Python</label><br>
-      <input type="radio" name="language" id="javascript" value="Javascript"/>
-      <label for="javascript">Javascript</label><br>
-      <input type="radio" name="language" id="c" value="C"/>
-      <label for="c">C</label><br>
-      <input type="radio" name="language" id="julia" value="Julia"/>
-      <label for="julia">Julia</label><br>
-      
-      <button id="submit"  value="Submit">Submit</button>
 
-      <span id='polls_db' hidden>
-        <%= JSON.stringify(polls); %>
-      </span>
-      
-      <div>
-        <h3>Result of the Poll:</h3>
-        <ul style="list-style: none;">
-          <% for (var i=0; i < polls.length; i++) { %>
-            <li><%=polls[i].name%> = <%=polls[i].no_of_votes%></li>
-          <% } %>
-        </ul>
-      </div>
-    
+<head>
+  <meta charset="utf-8">
+  </meta>
+  <title>Poll System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="\assets\poll.js"></script>
+</head>
 
-  </body>
+<body>
+  <form>
+    <p>Please vote for you favourite programming language:</p>
+    <input type="radio" name="language" id="java" value="Java" />
+    <label for="java">Java</label><br>
+    <input type="radio" name="language" id="python" value="Python" />
+    <label for="python">Python</label><br>
+    <input type="radio" name="language" id="javascript" value="Javascript" />
+    <label for="javascript">Javascript</label><br>
+    <input type="radio" name="language" id="c" value="C" />
+    <label for="c">C</label><br>
+    <input type="radio" name="language" id="julia" value="Julia" />
+    <label for="julia">Julia</label><br>
+
+    <button id="submit" value="Submit">Submit</button>
+  </form>
+  <span id='polls_db' hidden>
+    <%= JSON.stringify(polls); %>
+  </span>
+</body>
+
 </html>

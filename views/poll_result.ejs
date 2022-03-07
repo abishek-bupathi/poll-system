@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8"></meta>
-     <title>Poll System</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <h3>Result of the Poll:</h3>
-    <ul style="list-style: none;">
-        <% for (var i=0; i < polls.length; i++) { %>
-            <li><%=polls[i].name%> = <%=polls[i].no_of_votes%></li>
-            <% } %>
-    </ul>
-    <button id="back">Back</button>
-  </body>
-  <script type="text/javascript">
-    var back_btn = document.getElementById("back")
-    back_btn.addEventListener('click', function(e) {
-        window.location.href="poll"
-        return false
-    });
-  </script>
+
+<head>
+  <meta charset="utf-8">
+  </meta>
+  <title>Poll System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <h3>Result of the Poll:</h3>
+  <ul style="list-style: none;">
+    <% for (var i=0; i < polls.length; i++) { %>
+      <li>
+        <%=polls[i].name%> = <%=polls[i].no_of_votes%>
+      </li>
+      <% } %>
+  </ul>
+  <button id="back">Back</button>
+</body>
+<script type="text/javascript">
+  var back_btn = document.getElementById("back")
+  back_btn.addEventListener('click', function (e) {
+    window.location.href = "poll"
+    return false
+  });
+</script>
+
 </html>

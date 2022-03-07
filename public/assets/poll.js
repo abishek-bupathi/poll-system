@@ -1,64 +1,61 @@
 $(document).ready(function () {
 
-  
-  var submit_btn = document.getElementById("submit")
-  submit_btn.addEventListener('click', function(e) {
-        
-        var selected_lang = document.querySelector('input[name="language"]:checked').value;
-        var languages = document.getElementsByName('language')
-      
-        var polls_db = JSON.parse($('#polls_db').text());
-        $('#polls_db').remove();  
 
-        // window.alert(polls_db.length)
+  $('form').on('submit', function () {
 
-        if(polls_db.length == 0){
-          
-          var new_polls_data = [];
-          var no_of_votes = [0, 0, 0, 0, 0]
+    var selected_lang = document.querySelector('input[name="language"]:checked').value;
+    var languages = document.getElementsByName('language')
 
-          for (i = 0; i < languages.length; i++){
-            if(languages[i].value == selected_lang){
-              no_of_votes[i] = 1;
-            }
-            new_polls_data.push({name: languages[i].value, no_of_votes: no_of_votes[i]})
-          }
-          
-          for(i = 0; i < languages.length; i++){
-            $.ajax({
-              type: 'POST', 
-              url: '/poll', 
-              data: new_polls_data[i], 
-              success: function(data){ 
-                //do something with the data via front-end framework 
-                window.location.reload()
-              } 
-            });
-          }
+    var polls_db = JSON.parse($('#polls_db').text());
+    $('#polls_db').remove();
 
-        }else{
-          var updated_poll_item = {name: "Python", no_of_votes: 22}
-          for(i = 0 ; i < polls_db.length; i++){
-            if(polls_db[i].name == selected_lang){
-              updated_poll_item = {name: polls_db[i].name, no_of_votes: (polls_db[i].no_of_votes + 1)}
-              break;
-            }
-          }
+    if (polls_db.length == 0) {
 
-          $.ajax({
-            type: 'POST',           
-            url: '/poll/' + updated_poll_item.name + "/" + updated_poll_item.no_of_votes,            
-            data: updated_poll_item,            
-            success: function(data){            
-              //do something with the data via front-end framework 
-              window.location.reload()
-            }     
-            });
+      var new_polls_data = [];
+      var no_of_votes = [0, 0, 0, 0, 0]
+
+      for (i = 0; i < languages.length; i++) {
+        if (languages[i].value == selected_lang) {
+          no_of_votes[i] = 1;
         }
-        
-      //window.location.reload()
-      // window.location.href="poll_result"  
-      return false;
-    })
+        new_polls_data.push({ name: languages[i].value, no_of_votes: no_of_votes[i] })
+      }
+
+      for (i = 0; i < languages.length; i++) {
+        $.ajax({
+          type: 'POST',
+          url: '/poll',
+          data: new_polls_data[i],
+          success: function (data) {
+            //do something with the data via front-end framework 
+            window.location.href = "poll_result"
+          }
+        });
+      }
+
+    } else {
+      var updated_poll_item_name = ""
+      var update_poll_item_votes = 0
+
+      for (i = 0; i < polls_db.length; i++) {
+        if (polls_db[i].name == selected_lang) {
+          updated_poll_item_name = polls_db[i].name;
+          update_poll_item_votes = polls_db[i].no_of_votes + 1
+          break;
+        }
+      }
+
+      $.ajax({
+        type: 'POST',
+        url: '/poll/' + updated_poll_item_name + "/" + update_poll_item_votes,
+        success: function (data) {
+          //do something with the data via front-end framework 
+          window.location.href = "poll_result"
+        }
+      });
+    }
+
+    return false;
+  })
 
 })
