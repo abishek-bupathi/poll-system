@@ -31,7 +31,7 @@ $(document).ready(function () {
               data: new_polls_data[i], 
               success: function(data){ 
                 //do something with the data via front-end framework 
-                window.location.href="poll_result"  
+                window.location.reload()
               } 
             });
           }
@@ -51,13 +51,14 @@ $(document).ready(function () {
             data: updated_poll_item,            
             success: function(data){            
               //do something with the data via front-end framework 
-              window.location.href="poll_result"  
+              window.location.reload()
             }     
             });
         }
         
-        
-       return false;
+      //window.location.reload()
+      // window.location.href="poll_result"  
+      return false;
     })
 
 })

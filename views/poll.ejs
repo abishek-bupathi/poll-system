@@ -24,7 +24,17 @@
 
       <span id='polls_db' hidden>
         <%= JSON.stringify(polls); %>
-    </span>
+      </span>
+      
+      <div>
+        <h3>Result of the Poll:</h3>
+        <ul style="list-style: none;">
+          <% for (var i=0; i < polls.length; i++) { %>
+            <li><%=polls[i].name%> = <%=polls[i].no_of_votes%></li>
+          <% } %>
+        </ul>
+      </div>
+    
 
   </body>
 </html>

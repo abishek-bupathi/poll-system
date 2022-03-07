@@ -42,9 +42,10 @@ module.exports = function(app){
     console.log(req.params.votes)
     var my_query = {name: req.params.name}
     var updated_poll = {name: req.params.name, no_of_votes: req.params.votes};
-    Poll.updateOne(my_query, updated_poll, function(err, res) {
+    Poll.updateOne(my_query, updated_poll, function(err, data) {
       if (err) throw err;
       console.log("1 document updated");
+      res.json(data)
   
     });
 
