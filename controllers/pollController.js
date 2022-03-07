@@ -37,11 +37,15 @@ module.exports = function(app){
   
   });
 
-  app.get('/poll/:name', urlencodedParser, function(req,res){
-
-    Poll.find({name: req.params.name}).updateOne(function(err,data){
+  app.post('/poll/:name/:votes', urlencodedParser, function(req,res){
+    console.log(req.params.name)
+    console.log(req.params.votes)
+    var my_query = {name: req.params.name}
+    var updated_poll = {name: req.params.name, no_of_votes: req.params.votes};
+    Poll.updateOne(my_query, updated_poll, function(err, res) {
       if (err) throw err;
-      res.json(data);
+      console.log("1 document updated");
+  
     });
 
   });

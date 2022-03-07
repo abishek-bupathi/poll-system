@@ -13,14 +13,19 @@
       <label for="java">Java</label><br>
       <input type="radio" name="language" id="python" value="Python"/>
       <label for="python">Python</label><br>
-      <input type="radio" name="language" id="c++" value="C++"/>
-      <label for="c++">C++</label><br>
-      <input type="radio" name="language" id="c#" value="C#"/>
-      <label for="c#">C#</label><br>
+      <input type="radio" name="language" id="javascript" value="Javascript"/>
+      <label for="javascript">Javascript</label><br>
+      <input type="radio" name="language" id="c" value="C"/>
+      <label for="c">C</label><br>
       <input type="radio" name="language" id="julia" value="Julia"/>
       <label for="julia">Julia</label><br>
-  
+      
       <button type="submit" value="Submit">Submit</button>
+
+      <span id='polls_db' hidden>
+        <%= JSON.stringify(polls); %>
+    </span>
+
     </form>
   </body>
 </html>
