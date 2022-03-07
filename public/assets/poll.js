@@ -1,13 +1,12 @@
 $(document).ready(function () {
 
   
-    $('form').on('submit', function () {
+  var submit_btn = document.getElementById("submit")
+  submit_btn.addEventListener('click', function(e) {
         
         var selected_lang = document.querySelector('input[name="language"]:checked').value;
         var languages = document.getElementsByName('language')
-        
-
-        
+      
         var polls_db = JSON.parse($('#polls_db').text());
         $('#polls_db').remove();  
 
@@ -32,7 +31,7 @@ $(document).ready(function () {
               data: new_polls_data[i], 
               success: function(data){ 
                 //do something with the data via front-end framework 
-                
+                window.location.href="poll_result"  
               } 
             });
           }
@@ -52,12 +51,12 @@ $(document).ready(function () {
             data: updated_poll_item,            
             success: function(data){            
               //do something with the data via front-end framework 
-                   
+              window.location.href="poll_result"  
             }     
             });
         }
         
-        window.location.href="poll_result"  
+        
        return false;
     })
 
