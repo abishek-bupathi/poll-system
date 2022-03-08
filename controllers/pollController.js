@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb+srv://abishekb128:mongoabi328@cluster0.g3nrx.mongodb.net/poll-system?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://abishekb128:mongoabi328@cluster0.g3nrx.mongodb.net/poll?retryWrites=true&w=majority');
 
 // Create a scheme - this is like a blueprint
 var pollSchema = new mongoose.Schema({
@@ -36,18 +36,21 @@ module.exports = function (app) {
 
   });
 
-  app.post('/poll/:name/:votes', urlencodedParser, function (req, res) {
-    console.log(req.params.name)
-    console.log(req.params.votes)
-    var my_query = { name: req.params.name }
-    var updated_poll = { name: req.params.name, no_of_votes: req.params.votes };
-    Poll.updateOne(my_query, updated_poll, function (err, data) {
-      if (err) throw err;
-      console.log("1 document updated");
-      res.json(data)
+  app.post('/poll/:selected_lang', urlencodedParser, function (req, res) {
+    console.log(req.params.selected_lang)
+    var selected_lang_query = { name: req.params.selected_lang }
 
-    });
+    Poll.findOne(selected_lang_query, function (err, data) {
+      var updated_poll = {name: req.params.selected_lang, no_of_votes: (data.no_of_votes + 1)}
 
+      Poll.updateOne(selected_lang_query, updated_poll, function (err, data) {
+        if (err) throw err;
+        console.log("1 document updated");
+        res.json(data)
+  
+      });
+
+    })
   });
 
   app.post('/poll', urlencodedParser, function (req, res) {
