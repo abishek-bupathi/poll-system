@@ -11,6 +11,7 @@
 <body>
   <h3>Result of the Poll:</h3>
   <ul style="list-style: none;">
+    <!-- Getting the polls data and printing as list with their corresponding votes -->
     <% for (var i=0; i < polls.length; i++) { %>
       <li>
         <%=polls[i].name%> = <%=polls[i].no_of_votes%>
@@ -19,6 +20,7 @@
   </ul>
   <button id="back">Back</button>
 </body>
+<!-- Javascipt code for handling the back button which redirects to the poll page -->
 <script type="text/javascript">
   var back_btn = document.getElementById("back")
   back_btn.addEventListener('click', function (e) {

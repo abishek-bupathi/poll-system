@@ -12,6 +12,7 @@
 <body>
   <form>
     <p>Please vote for you favourite programming language:</p>
+    <!-- Radio Buttons for each language option -->
     <input type="radio" name="language" id="java" value="Java" />
     <label for="java">Java</label><br>
     <input type="radio" name="language" id="python" value="Python" />
@@ -25,6 +26,7 @@
 
     <button id="submit" value="Submit">Submit</button>
   </form>
+  <!-- Hack used to access polls data inside javascript (poll.js) which is sent by res.render() in pollController.js-->
   <span id='polls_db' hidden>
     <%= JSON.stringify(polls); %>
   </span>
